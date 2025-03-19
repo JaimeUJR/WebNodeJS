@@ -1,19 +1,44 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const formRoutes = require('./routes/formRoutes');
+const router = require('./routes');
+const path = require('path')
+
 
 const app = express();
 const port = 3000;
 
+app.set('view engine', 'ejs')
+app.use(express.static(path.join(__dirname, '/views/')));
+app.set('views', __dirname+'/views/')
+
 // Middleware
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static('public'));
 
 // Usar las rutas definidas en formRoutes.js
-app.use('/', formRoutes);
+app.use(router);
+
+app.get('/', (req, res) => {
+  res.render('login.ejs')
+})
+
+app.get('/index', (req, res) => {
+  res.render('index.ejs')
+})
+
+app.get('/resetScreen', (req, res) => {
+  res.render('reset.ejs')
+})
+app.get('/signInScreen', (req, res) => {
+  res.render('signIn.ejs')
+})
+
+
 
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
 });
+
+module.exports = app

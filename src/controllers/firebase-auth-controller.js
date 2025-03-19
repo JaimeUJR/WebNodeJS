@@ -49,7 +49,9 @@ const {
                   res.cookie('access_token', idToken, {
                       httpOnly: true
                   });
-                  res.status(200).json({ message: "User logged in successfully", userCredential });
+                  // res.status(200).json({ message: "User logged in successfully", userCredential });
+                  //res.render('index.ejs')
+                  res.redirect('/index')
               } else {
                   res.status(500).json({ error: "Internal Server Error" });
               }
@@ -65,7 +67,8 @@ const {
       signOut(auth)
         .then(() => {
           res.clearCookie('access_token');
-          res.status(200).json({ message: "User logged out successfully" });
+          res.redirect('/')
+          // res.status(200).json({ message: "User logged out successfully" });
         })
         .catch((error) => {
           console.error(error);
