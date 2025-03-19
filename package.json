@@ -1,0 +1,24 @@
+{
+  "name": "webnodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaimeUJR/WebNodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaimeUJR/WebNodeJS/issues"
+  },
+  "homepage": "https://github.com/JaimeUJR/WebNodeJS#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase": "^11.4.0"
+  }
+}
