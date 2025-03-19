@@ -18,10 +18,11 @@
     <form action="#" id="form_login">
         <div>
             <h1>Inicio de Sesion</h1>
+            <span id="loginError"></span>
         </div>
         <div class="inputsContainer">
             <div>
-                <label for="userName">Usuario: </label>
+                <label for="userName">Usuario/Email: </label>
                 <input type="text" name="userName" id="userName" autocomplete="off">
             </div>
 
@@ -31,7 +32,7 @@
             </div>
 
             <div>
-                <button id="btnLogin">Iniciar Sesion</button>
+                <button id="btnLogin" type="submit">Iniciar Sesion</button>
             </div>
         </div>
 
@@ -39,6 +40,7 @@
             <h5><a href="#">Olvide mi contraseña</a> | <a href="#">Registrarme</a></h5>
         </div>
     </form>
-</body>
 
+    <script type="module" src="../scripts/auth.js"></script>
+</body>
 </html>
