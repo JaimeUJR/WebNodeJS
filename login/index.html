@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
 </head>
+
 <body>
 
-    <form action="#">
+    <header>
+        <img src="../public/svg/LA PRINCIPAL (1).png" alt="LaPrincipal">
+        <h1>LA PRINCIPAL</h1>
+    </header>
+
+    <form action="#" id="form_login">
         <div>
-            <h1>LOG in</h1>
+            <h1>Inicio de Sesion</h1>
         </div>
-        <div></div>
-        <div></div>
+        <div class="inputsContainer">
+            <div>
+                <label for="userName">Usuario: </label>
+                <input type="text" name="userName" id="userName" autocomplete="off">
+            </div>
+
+            <div>
+                <label for="password">Contraseña: </label>
+                <input type="password" name="password" id="password" autocomplete="off">
+            </div>
+
+            <div>
+                <button id="btnLogin">Iniciar Sesion</button>
+            </div>
+        </div>
+
+        <div id="linksLogin">
+            <h5><a href="#">Olvide mi contraseña</a> | <a href="#">Registrarme</a></h5>
+        </div>
     </form>
 </body>
+
 </html>

@@ -1,0 +1,98 @@
+:root {
+    --background_body: #87cfeb95;
+    --glass: #00a2ff2e;
+    --white: #fff;
+    --blue: #00a2ff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    outline: none;
+}
+
+body {
+    background-color: var(--background_body);
+}
+
+header {
+    width: 100%;
+    height: auto;
+    background-color: var(--blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 200px;
+    object-fit: cover;
+}
+
+#form_login {
+    width: 500px;
+    height: auto;
+    background-color: var(--glass);
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#form_login div h1 {
+    border-bottom: 1px solid #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#form_login .inputsContainer {
+    width: 80%;
+    height: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+
+.inputsContainer div {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.inputsContainer div input {
+    width: 60%;
+    height: auto;
+    padding: 3px 10px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #333;
+    position: absolute;
+    right: 10%;
+}
+
+.inputsContainer div #btnLogin {
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+
+.inputsContainer div #btnLogin:hover {
+    height: 30px;
+    background-color: var(--blue);
+}
+
+#linksLogin {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
