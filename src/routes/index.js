@@ -10,6 +10,7 @@ const firebaseAuthController = require('../controllers/firebase-auth-controller'
 router.post('/register', firebaseAuthController.registerUser);
 router.post('/login', firebaseAuthController.loginUser);
 router.get('/logout', firebaseAuthController.logoutUser);
+router.get('/deleteAccount', firebaseAuthController.delete);
 router.post('/reset-password', firebaseAuthController.resetPassword);
 
 

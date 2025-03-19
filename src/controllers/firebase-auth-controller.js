@@ -4,10 +4,11 @@ const {
     signInWithEmailAndPassword, 
     signOut, 
     sendEmailVerification,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    deleteUser
    } = require('../config/firebase');
   const auth = getAuth();
-  
+ 
   class FirebaseAuthController {
     registerUser(req, res) {
       const { email, password } = req.body;
@@ -21,7 +22,8 @@ const {
         .then((userCredential) => {
           sendEmailVerification(auth.currentUser)
             .then(() => {
-              res.status(201).json({ message: "Verification email sent! User created successfully!" });
+              // res.status(201).json({ message: "Verification email sent! User created successfully!" });
+              res.redirect('/index')
             })
             .catch((error) => {
               console.error(error);
@@ -86,12 +88,24 @@ const {
       }
       sendPasswordResetEmail(auth, email)
         .then(() => {
-          res.status(200).json({ message: "Password reset email sent successfully!" });
+          // res.status(200).json({ message: "Password reset email sent successfully!" });
+          res.redirect('/')
         })
         .catch((error) => {
           console.error(error);
           res.status(500).json({ error: "Internal Server Error" });
         });
+    }
+
+    delete(req, res) {
+      deleteUser(auth.currentUser)
+        .then(() => {
+          // res.clearCookie('access_token');
+          res.redirect('/')
+        }).catch((error) => {
+          console.error(error);
+          res.status(500).json({ error: "Internal Server Error" });
+        })
     }
   
   }

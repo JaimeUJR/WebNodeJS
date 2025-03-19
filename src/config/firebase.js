@@ -6,7 +6,8 @@ const {
   signInWithEmailAndPassword, 
   signOut, 
   sendEmailVerification, 
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  deleteUser
 
 } = require("firebase/auth") ;
 const firebaseConfig = {
@@ -36,5 +37,6 @@ module.exports = {
   signOut,
   sendEmailVerification,
   sendPasswordResetEmail,
-  admin
+  admin,
+  deleteUser
 };
