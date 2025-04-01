@@ -55,14 +55,15 @@ const {
                   //res.render('index.ejs')
                   console.log('inside here')
                   res.redirect('/')
-              } else {
-                  res.status(500).json({ error: "Internal Server Error" });
+              } else {  
+              res.status(500).json({ error: "Internal Server Error" });
               }
           })
           .catch((error) => {
               console.error(error);
               const errorMessage = error.message || "An error occurred while logging in";
-              res.status(500).json({ error: errorMessage });
+              // res.status(500).json({ error: errorMessage });
+              res.render('login', { error: errorMessage })
           });
     }
   
@@ -70,7 +71,7 @@ const {
       signOut(auth)
         .then(() => {
           res.clearCookie('access_token');
-          res.redirect('/loginScreen')
+          res.redirect('/login')
           // res.status(200).json({ message: "User logged out successfully" });
         })
         .catch((error) => {
@@ -90,7 +91,7 @@ const {
       sendPasswordResetEmail(auth, email)
         .then(() => {
           // res.status(200).json({ message: "Password reset email sent successfully!" });
-          res.redirect('/loginScreen')
+          res.redirect('/login')
         })
         .catch((error) => {
           console.error(error);

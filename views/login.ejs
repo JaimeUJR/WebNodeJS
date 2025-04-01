@@ -39,6 +39,9 @@
             <h5><a href="/resetScreen">Olvide mi contraseña</a> | <a href="/signInScreen">Registrarme</a></h5>
         </div>
     </form>
+    <% if (error) { %>
+        <p> <%= error  %> </p>
+    <% } %>
 </body>
 
 </html>

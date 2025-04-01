@@ -1,6 +1,6 @@
 class IndexControllers {
     loginPage(req, res) {
-        res.render('login.ejs')
+        res.render('login.ejs', { error: null})
     }
     indexScreen(req, res) {
         res.render('index.ejs')

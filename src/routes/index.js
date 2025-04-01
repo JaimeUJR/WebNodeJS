@@ -21,7 +21,7 @@ router.post('/reset-password', firebaseAuthController.resetPassword);
 // index routes
 router.get('/resetScreen',  indexControllers.resetScreen);
 router.get('/signInScreen',  indexControllers.signInScreen);
-router.get('/loginScreen', indexControllers.loginPage);
+router.get('/login', indexControllers.loginPage);
 router.get('/', verifyToken, indexControllers.indexScreen);
 
 module.exports = router;

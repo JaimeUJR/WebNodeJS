@@ -6,7 +6,7 @@ const verifyToken = async (req, res, next) => {
     const idToken =  req.cookies.access_token; // req.headers.authorization;
     if (!idToken) {
         //console.log('emm')
-        res.redirect('/loginScreen')
+        res.redirect('/login')
         return// return res.status(403).json({ error: 'No token provided' });
     }
 
