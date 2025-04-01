@@ -23,7 +23,7 @@ const {
           sendEmailVerification(auth.currentUser)
             .then(() => {
               // res.status(201).json({ message: "Verification email sent! User created successfully!" });
-              res.redirect('/index')
+              res.redirect('/')
             })
             .catch((error) => {
               console.error(error);
@@ -51,9 +51,10 @@ const {
                   res.cookie('access_token', idToken, {
                       httpOnly: true
                   });
-                  // res.status(200).json({ message: "User logged in successfully", userCredential });
+                  // // res.status(200).json({ message: "User logged in successfully", userCredential });
                   //res.render('index.ejs')
-                  res.redirect('/index')
+                  console.log('inside here')
+                  res.redirect('/')
               } else {
                   res.status(500).json({ error: "Internal Server Error" });
               }
@@ -69,7 +70,7 @@ const {
       signOut(auth)
         .then(() => {
           res.clearCookie('access_token');
-          res.redirect('/')
+          res.redirect('/loginScreen')
           // res.status(200).json({ message: "User logged out successfully" });
         })
         .catch((error) => {
@@ -89,7 +90,7 @@ const {
       sendPasswordResetEmail(auth, email)
         .then(() => {
           // res.status(200).json({ message: "Password reset email sent successfully!" });
-          res.redirect('/')
+          res.redirect('/loginScreen')
         })
         .catch((error) => {
           console.error(error);
@@ -100,8 +101,8 @@ const {
     delete(req, res) {
       deleteUser(auth.currentUser)
         .then(() => {
-          // res.clearCookie('access_token');
-          res.redirect('/')
+          res.clearCookie('access_token');
+          res.redirect('/loginScreen')
         }).catch((error) => {
           console.error(error);
           res.status(500).json({ error: "Internal Server Error" });

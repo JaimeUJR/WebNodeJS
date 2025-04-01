@@ -3,9 +3,11 @@ const { admin } = require("../config/firebase");
 
 
 const verifyToken = async (req, res, next) => {
-    const idToken = req.cookies.access_token;
+    const idToken =  req.cookies.access_token; // req.headers.authorization;
     if (!idToken) {
-        return res.status(403).json({ error: 'No token provided' });
+        //console.log('emm')
+        res.redirect('/loginScreen')
+        return// return res.status(403).json({ error: 'No token provided' });
     }
 
     try {
