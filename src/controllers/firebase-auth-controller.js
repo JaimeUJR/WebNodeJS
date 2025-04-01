@@ -4,10 +4,11 @@ const {
     signInWithEmailAndPassword, 
     signOut, 
     sendEmailVerification,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    deleteUser
    } = require('../config/firebase');
   const auth = getAuth();
-  
+ 
   class FirebaseAuthController {
     registerUser(req, res) {
       const { email, password } = req.body;
@@ -21,7 +22,8 @@ const {
         .then((userCredential) => {
           sendEmailVerification(auth.currentUser)
             .then(() => {
-              res.status(201).json({ message: "Verification email sent! User created successfully!" });
+              // res.status(201).json({ message: "Verification email sent! User created successfully!" });
+              res.redirect('/')
             })
             .catch((error) => {
               console.error(error);
@@ -49,7 +51,10 @@ const {
                   res.cookie('access_token', idToken, {
                       httpOnly: true
                   });
-                  res.status(200).json({ message: "User logged in successfully", userCredential });
+                  // // res.status(200).json({ message: "User logged in successfully", userCredential });
+                  //res.render('index.ejs')
+                  console.log('inside here')
+                  res.redirect('/')
               } else {
                   res.status(500).json({ error: "Internal Server Error" });
               }
@@ -65,7 +70,8 @@ const {
       signOut(auth)
         .then(() => {
           res.clearCookie('access_token');
-          res.status(200).json({ message: "User logged out successfully" });
+          res.redirect('/loginScreen')
+          // res.status(200).json({ message: "User logged out successfully" });
         })
         .catch((error) => {
           console.error(error);
@@ -83,12 +89,24 @@ const {
       }
       sendPasswordResetEmail(auth, email)
         .then(() => {
-          res.status(200).json({ message: "Password reset email sent successfully!" });
+          // res.status(200).json({ message: "Password reset email sent successfully!" });
+          res.redirect('/loginScreen')
         })
         .catch((error) => {
           console.error(error);
           res.status(500).json({ error: "Internal Server Error" });
         });
+    }
+
+    delete(req, res) {
+      deleteUser(auth.currentUser)
+        .then(() => {
+          res.clearCookie('access_token');
+          res.redirect('/loginScreen')
+        }).catch((error) => {
+          console.error(error);
+          res.status(500).json({ error: "Internal Server Error" });
+        })
     }
   
   }
