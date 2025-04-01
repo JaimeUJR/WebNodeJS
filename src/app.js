@@ -9,13 +9,14 @@ const app = express();
 const port = 3000;
 
 app.set('view engine', 'ejs')
-app.use(express.static(path.join(__dirname, '/views/')));
-app.set('views', __dirname+'/views/')
+//app.use(express.static(path.join(__dirname, '/views/')));
+app.set('views', path.join(__dirname, '../views'))
 
 // Middleware
 app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static('public'));
+
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }))
 
