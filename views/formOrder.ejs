@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <a class="back" href="./index.html">back</a>
+
+    <a class="back" href="./index.html">back</a>
+
+    <header>
+        <img src="svg/LA PRINCIPAL (1).png" alt="LaPrincipal">
+        <h1>LA PRINCIPAL</h1>
+    </header>
+
+    <form action="/login" id="form_login" method="POST">
+        <div>
+            <h1>Pedidos</h1>
+        </div>
+ 
+        <div class="inputsContainer">
+            <div>
+                <label for="name">Nombre: </label>
+                <input type="text" name="name" id="userName" autocomplete="off" required>
+            </div>
+
+            <div>
+                <label for="amount">Cantidad: </label>
+                <input type="number" name="amount" id="amount" autocomplete="off" required>
+            </div>
+
+            <div id="maps">
+                <p>Maps</p>
+            </div>
+
+            <input type="file" name="file" id="file">
+            <div>
+                <button id="btnLogin">Pedir</button>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

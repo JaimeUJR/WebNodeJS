@@ -3,6 +3,7 @@
     --glass: #00a2ff2e;
     --white: #fff;
     --blue: #00a2ff;
+    --black: #333;
 }
 
 * {
@@ -11,6 +12,8 @@
     box-sizing: border-box;
     font-family: sans-serif;
     outline: none;
+    text-decoration: none;
+    color: var(--black);
 }
 
 body {
@@ -24,6 +27,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header {
+    height: 100px;
+    justify-content: space-around;
 }
 
 header img {
@@ -95,4 +103,78 @@ header img {
     width: 100%;
     height: auto;
     text-align: center;
+}
+
+
+
+/* ------------------------------------- Temporal */
+
+.listViews {
+    list-style: none;
+    display: flex;
+}
+
+.listViews li {
+    margin: 0px 5px;
+    padding: 5px;
+    border: 2px solid transparent;
+    transition: border .2s;
+}
+
+.listViews li:hover {
+    background-color: var(--glass);
+    border-left: 2px solid var(--black);
+    border-right: 2px solid var(--black);
+    border-radius: 5px;
+}
+
+.back {
+    padding: 10px;
+    background-color: red;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+
+
+/* ------------------------------------- Tables */
+
+main {
+    width: 800px;
+    height: auto;
+    margin: 100px auto;
+    background-color: var(--glass);
+    padding: 20px 0;
+}
+
+main .head {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0;
+}
+
+main table {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 2px solid #00a2ff;
+}
+
+main table tr td {
+    background-color: var(--glass);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* form order */
+
+#maps {
+    width: 50px;
+    height: 50px;
+    background-color: #e2d8cc;
 }
