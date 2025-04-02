@@ -9,7 +9,7 @@
 <body>
     <%- include('./partials/header'); %>
 
-    <form action="/login" id="form_login" method="POST">
+    <form action="/crearOrden" id="form_login" method="POST">
         <div>
             <h1>Pedidos</h1>
         </div>
@@ -17,19 +17,17 @@
         <div class="inputsContainer">
             <div>
                 <label for="name">Nombre: </label>
-                <input type="text" name="name" id="userName" autocomplete="off" required>
+                <p id="userName"></p>
             </div>
 
             <div>
                 <label for="amount">Cantidad: </label>
                 <input type="number" name="amount" id="amount" autocomplete="off" required>
             </div>
-
-            <div id="maps">
-                <p>Maps</p>
+            <div>
+                <label for="address">Direccion: </label>
+                <input type="text" name="address" id="address" autocomplete="off" required>
             </div>
-
-            <input type="file" name="file" id="file">
             <div>
                 <button id="btnLogin">Pedir</button>
             </div>
@@ -38,3 +36,13 @@
     </form>
 </body>
 </html>
+<script> 
+    async function leerNombre() {
+        const response = await fetch(`/getUserName`);
+        const registros = await response.json()
+        registros.map( registro => 
+            document.getElementById("userName").innerText = registro.name
+        )
+    }
+   leerNombre()
+</script>

@@ -1,5 +1,5 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const router = require('./routes');
 const path = require('path')
 const cookieParser = require('cookie-parser');
@@ -13,12 +13,13 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '../views'))
 
 // Middleware
-app.use(express.json());
-// app.use(bodyParser.urlencoded({ extended: true}));
+// app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static('public'));
 
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }))
+// app.use(express.urlencoded({ extended: true }))
 
 // Usar las rutas definidas en formRoutes.js
 app.use(router);

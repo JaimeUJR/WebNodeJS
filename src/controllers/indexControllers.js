@@ -12,7 +12,9 @@ class IndexControllers {
         res.render('signIn.ejs')
     }
     orderScreen(req, res) {
-        res.render('formOrder')
+        const { uid } = req.user;
+
+        res.render('formOrder', {uid: uid})
     }
     historyScreen(req, res) {
         res.render('historyCustomer')

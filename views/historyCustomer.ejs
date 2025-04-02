@@ -11,17 +11,17 @@
 
     <main>
         <section class="head">
-            <h1>Customer Name: </h1>
-            <h2>id: </h2>
+            <h1 id="userName">Customer Name : </h1>
         </section>
 
-        <table>
+        <table id="lista-registros">
             <tr>
-                <th>Date</th>
-                <th>AMOUNT</th>
-                <th>STATUS</th>
+                <th>Fecha</th>
+                <th>Cantidad</th>
+                <th>Direccion</th>
             </tr>
-            <tr>
+
+            <!-- <tr>
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
@@ -30,13 +30,32 @@
                 <td>2</td>
                 <td>2</td>
                 <td>2</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-            </tr>
+            </tr> -->
         </table>
     </main>
 </body>
 </html>
+<script>
+    async function leerNombre() {
+        const response = await fetch(`/getUserName`);
+        const registros = await response.json()
+        registros.map( registro => 
+            document.getElementById("userName").innerText += " " + registro.name
+        )
+    }
+    async function cargarRegistros() {
+      const response = await fetch('/orders');
+      const registros = await response.json();
+      const lista = document.getElementById('lista-registros');
+      // console.log(registros)
+      lista.innerHTML += registros.map(registro => `
+        <tr>
+            <td> ${new Date(registro.order_date).toLocaleString("es-mx")} </td>
+            <td> ${registro.quantity} </td>
+            <td> ${registro.address} </td>
+        </tr>
+      `).join('');
+    }
+    cargarRegistros()
+    leerNombre()
+</script>
