@@ -23,5 +23,8 @@ router.get('/resetScreen',  indexControllers.resetScreen);
 router.get('/signInScreen',  indexControllers.signInScreen);
 router.get('/login', indexControllers.loginPage);
 router.get('/', verifyToken, indexControllers.indexScreen);
+router.get('/order', indexControllers.orderScreen);
+router.get('/history', indexControllers.historyScreen);
+
 
 module.exports = router;

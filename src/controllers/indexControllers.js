@@ -11,6 +11,12 @@ class IndexControllers {
     signInScreen(req, res ) {
         res.render('signIn.ejs')
     }
+    orderScreen(req, res) {
+        res.render('formOrder')
+    }
+    historyScreen(req, res) {
+        res.render('historyCustomer')
+    }
 }
 
 module.exports = new IndexControllers();

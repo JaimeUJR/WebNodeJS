@@ -53,7 +53,6 @@ const {
                   });
                   // // res.status(200).json({ message: "User logged in successfully", userCredential });
                   //res.render('index.ejs')
-                  console.log('inside here')
                   res.redirect('/')
               } else {  
               res.status(500).json({ error: "Internal Server Error" });

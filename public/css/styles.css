@@ -29,6 +29,12 @@ header {
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .header {
     height: 100px;
     justify-content: space-around;
@@ -130,7 +136,7 @@ header img {
 
 .back {
     padding: 10px;
-    background-color: red;
+    color: red;
     position: absolute;
     left: 10px;
     top: 10px;
