@@ -144,7 +144,10 @@ header img {
 }
 
 
-
+.error {
+    width: 100%;
+    text-align: center;
+}
 /* ------------------------------------- Tables */
 
 main {

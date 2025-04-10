@@ -23,7 +23,8 @@ const {
           sendEmailVerification(auth.currentUser)
             .then(() => {
               // res.status(201).json({ message: "Verification email sent! User created successfully!" });
-              res.redirect('/')
+              res.render('login', { error: "Email de verificacion enviado correctamente" })
+              return
             })
             .catch((error) => {
               console.error(error);
@@ -32,7 +33,8 @@ const {
         })
         .catch((error) => {
           const errorMessage = error.message || "An error occurred while registering user";
-          res.status(500).json({ error: errorMessage });
+          res.render('login', { error: errorMessage })
+          // res.status(500).json({ error: errorMessage });
         });
     }
   
